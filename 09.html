@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解二元一次方程式</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .background{
+        background-color: #FFB7DD;
+        height: 1000px;
+    }
+    .wrap{
+        
+        max-width:100%;
+        
+    }
+    .table h1{
+        padding: 50px;
+    }
+    .table{
+        text-align: center;
+        border:2px solid black;
+        width: 500px;
+        height: 500px;
+        margin: 0px auto;
+    }
+    .btn{
+        font-size: 20px;
+        width: 70px;
+        margin-top: 50px;
+        margin-left: 300px;
+    }
+    #solution{
+        margin-right: 300px;
+    }
+    #solution1{
+        margin-right: 300px;
+    }
+</style>
+</head>
+
+
+<body>
+    <div class="background">
+        <div class="wrap">
+            <div class="table">
+                <tr>
+                    <td><h1>解二元一次方程式</h1></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form name = thisform>
+                            <input type = text  name = t1  size = 10  value=""> X +
+                            <input type = text  name = t2  size = 10  value=""> Y = 
+                            <input type = text  name = t3  size = 10  value="">
+                            <br>
+                            <br>
+                            <br>
+                            <input type = text  name = t4  size = 10  value=""> X +
+                            <input type = text  name = t5  size = 10  value=""> Y = 
+                            <input type = text  name = t6  size = 10  value="">
+                            <br>
+                            <br>
+                            
+                            <input type = button  onclick = "A();" value = "解" class = btn>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            X = <span id="solution"></span><br><br><br><br>
+                            Y = <span id="solution1"></span>
+                            
+                            </form>
+                    </td>
+                </tr>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<script>
+    function A(){
+	var t1 = thisform.t1.value;
+	var t2 = thisform.t2.value;
+	var t3 = thisform.t3.value;
+	var t4 = thisform.t4.value;
+	var t5 = thisform.t5.value;
+	var t6 = thisform.t6.value;
+	var D = (t1*t5)-(t4*t2);/*係數*/
+	var C = (t1*t6)-(t3*t4);
+	if(D==0){
+		if(C!=0 && t3!="" && t6!=""){
+			/*alert("無解");*/
+			document.getElementById("solution").innerHTML="無解";
+			document.getElementById("solution1").innerHTML="無解";
+			}
+		else if (C==0 && t3!="" && t6!=""){
+			/*alert("無限多解");*/
+			document.getElementById("solution").innerHTML="無限多解";
+			document.getElementById("solution1").innerHTML="無限多解";
+			}
+			
+	}
+	else if (D!=0){
+		var x = ((t5*t3)-(t2*t6))/((t1*t5)-(t2*t4));
+		var y = ((t4*t3)-(t1*t6))/((t2*t4)-(t1*t5));
+		document.getElementById("solution").innerHTML=x;
+		document.getElementById("solution1").innerHTML=y;
+		
+	}
+	else{
+		alert("錯誤")
+	}
+	
+	
+
+}
+
+
+
+</script>
+
+
+    
+</body>
+</html>
